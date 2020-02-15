@@ -13,9 +13,9 @@ import { Component, Prop, Watch } from "vue-property-decorator";
 
 @Component
 export default class FormItem extends Vue {
-  value = "";
-
-  @Prop({ required: true }) fieldName!: string;
+  @Prop({ default: "" }) value!: string;
+  @Prop({ required: true })
+  fieldName!: string;
   @Prop() placeholder?: string;
 
   onValueChanged(value: string) {

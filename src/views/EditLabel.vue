@@ -48,10 +48,10 @@ export default class EditLabel extends Vue {
       //   } else {
       //     window.alert("删除失败");
       //   }
-      // }
     }
-    //   goBack() {
-    //     this.$router.back();
+  }
+  goBack() {
+    this.$router.back();
   }
 }
 </script>

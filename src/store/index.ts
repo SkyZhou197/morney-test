@@ -5,7 +5,6 @@ import createId from "@/lib/createId";
 import router from "@/router";
 
 Vue.use(Vuex);
-const localStorageKeyName = "recordList";
 
 const store = new Vuex.Store({
   state: {
@@ -54,8 +53,8 @@ const store = new Vuex.Store({
         window.localStorage.getItem("recordList") || "[]"
       ) as RecordItem[];
     },
-    createRecord(state, record) {
-      const record2: RecordItem = clone(record);
+    createRecord(state, record: RecordItem) {
+      const record2 = clone(record);
       record2.createdAt = new Date().toISOString();
       state.recordList.push(record2);
       store.commit("saveRecords");
@@ -78,7 +77,7 @@ const store = new Vuex.Store({
       }
     },
     createTag(state, name: string) {
-      state.createRecordError = null;
+      state.createTagError = null;
       const names = state.tagList.map(item => item.name);
 
       if (names.indexOf(name) >= 0) {
@@ -89,6 +88,7 @@ const store = new Vuex.Store({
       state.tagList.push({ id, name: name });
       store.commit("saveTags");
     },
+
     saveTags(state) {
       window.localStorage.setItem("tagList", JSON.stringify(state.tagList));
     }

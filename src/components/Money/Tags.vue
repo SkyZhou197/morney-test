@@ -7,15 +7,13 @@
         :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
         @click="toggle(tag)"
       >
-        <Icon
-          class="item"
-          :name="tag.name"
-          v-if="tagNameList.indexOf(tag.name) >= 0"
-        />
+        <Icon class="item" :name="tag.name" v-if="tagNameList.indexOf(tag.name) >= 0" />
         <Icon class="item" v-else name="自定义" />
         {{ tag.name }}
       </li>
-      <li><Icon class="item" name="新建" @click="createTag" />新建</li>
+      <li>
+        <Icon class="item" name="新建" @click="createTag" />新建
+      </li>
     </ul>
   </div>
 </template>
@@ -93,13 +91,17 @@ export default class Tags extends mixins(TagHelper) {
       line-height: $h;
       padding: 12px 16px 16px 16px;
       margin-right: 8px;
-      margin-top: 4px;
+      margin-top: 12px;
+      margin-bottom: -8px;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       > .item {
         position: absolute;
         height: 28px;
         width: 28px;
-        margin-top: -8px;
+        margin-top: -24px;
       }
       &.selected {
         color: #ff3333;

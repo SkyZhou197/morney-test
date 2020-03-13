@@ -14,7 +14,7 @@
       />
     </div>
     <div class="button-wrapper">
-      <Button @click="remove">删除标签</Button>
+      <Button @click="remove" class="removeButton">删除标签</Button>
     </div>
   </Layout>
 </template>
@@ -88,5 +88,8 @@ export default class EditLabel extends Vue {
   text-align: center;
   padding: 16px;
   margin-top: 44-16px;
+  > .removeButton {
+    background: rgba(219, 17, 27, 0.911);
+  }
 }
 </style>

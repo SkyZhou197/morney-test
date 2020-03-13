@@ -1,8 +1,13 @@
 <template>
   <Layout>
     <div class="tags">
-      <router-link class="tag" v-for="tag in tags" :key="tag.id" :to="`/labels/edit/${tag.id}`">
-        <span>{{tag.name}}</span>
+      <router-link
+        class="tag"
+        v-for="tag in tags"
+        :key="tag.id"
+        :to="`/labels/edit/${tag.id}`"
+      >
+        <span><Icon :name="tag.name" />{{ tag.name }}</span>
         <Icon name="right" />
       </router-link>
     </div>
@@ -18,6 +23,7 @@ import { Component } from "vue-property-decorator";
 import Button from "@/components/Button.vue";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
+import Icon from "@/components/Icon.vue";
 
 @Component({
   components: { Button }

@@ -7,7 +7,7 @@
         :key="tag.id"
         :to="`/labels/edit/${tag.id}`"
       >
-        <span><Icon :name="tag.name" />{{ tag.name }}</span>
+        <span>{{ tag.name }}</span>
         <Icon name="right" />
       </router-link>
     </div>

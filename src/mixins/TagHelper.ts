@@ -16,6 +16,7 @@ export class TagHelper extends Vue {
     if (this.$store.state.createTagError) {
       window.alert(map[this.$store.state.createTagError.message] || "未知错误");
     }
+    this.$router.back();
   }
 }
 

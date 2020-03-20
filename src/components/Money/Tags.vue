@@ -1,18 +1,20 @@
 <template>
   <div class="tags">
+    <div class="new">
+      <button>
+        <router-link to="/addtag">新增标签</router-link>
+      </button>
+    </div>
     <ul class="current">
-      <li
-        v-for="tag in tagList"
-        :key="tag.id"
-        :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
-        @click="toggle(tag)"
-      >
-        <Icon class="item" :name="tag.name" v-if="tagNameList.indexOf(tag.name) >= 0" />
-        <Icon class="item" v-else name="自定义" />
-        {{ tag.name }}
-      </li>
-      <li>
-        <Icon class="item" name="新建" @click="createTag" />新建
+      <li v-for="tag in tagList" :key="tag.id" @click="toggle(tag)">
+        <Icon
+          class="item"
+          :name="tag.name"
+          v-if="tagNameList.indexOf(tag.name) >= 0"
+          :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
+        />
+        <Icon class="item" v-else name="自定义" :class="{ selected: selectedTags.indexOf(tag) >= 0 }" />
+        <span>{{ tag.name }}</span>
       </li>
     </ul>
   </div>
@@ -24,6 +26,7 @@ import { Component, Prop } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import TagHelper from "../../mixins/TagHelper";
 import recordTypeList from "@/constants/recordTypeList";
+import router from "../../router/index";
 
 @Component
 export default class Tags extends mixins(TagHelper) {
@@ -98,13 +101,15 @@ export default class Tags extends mixins(TagHelper) {
       justify-content: center;
       align-items: center;
       > .item {
+        border-radius: 4px;
         position: absolute;
         height: 28px;
         width: 28px;
         margin-top: -24px;
-      }
-      &.selected {
-        color: #ff3333;
+        margin-bottom: -24px;
+        &.selected {
+          background: #f8fc19;
+        }
       }
     }
   }

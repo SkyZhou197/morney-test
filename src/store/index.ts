@@ -12,6 +12,7 @@ const store = new Vuex.Store({
     createRecordError: null,
     createTagError: null,
     tagList: [],
+    tagNameList: [],
     currentTag: undefined
   } as RootState,
   mutations: {
@@ -75,10 +76,6 @@ const store = new Vuex.Store({
         store.commit("createTag", "服饰");
         store.commit("createTag", "住房");
         store.commit("createTag", "娱乐");
-        store.commit("createTag", "购物");
-        store.commit("createTag", "运动");
-        store.commit("createTag", "日用");
-        store.commit("createTag", "工资");
       }
     },
     createTag(state, name: string) {

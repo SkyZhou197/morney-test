@@ -1,10 +1,6 @@
 <template>
   <Layout>
-    <Tabs
-      class-prefix="type"
-      :data-source="recordTypeList"
-      :value.sync="type"
-    />
+    <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type" />
     <ol v-if="groupedList.length > 0">
       <li v-for="(group, index) in groupedList" :key="index">
         <h3 class="title">
@@ -20,7 +16,7 @@
         </ol>
       </li>
     </ol>
-    <div v-else class="noResult">目前没有相关记录</div>
+    <div v-else class="noResult">当前没有相关记录，快去记一笔吧</div>
   </Layout>
 </template>
 
